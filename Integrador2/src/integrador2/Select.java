@@ -77,13 +77,8 @@ public class Select {
 				+ "FROM Carrera c JOIN CarreraEstudiante ce ON c.id = ce.carrera "
 				+ "JOIN Estudiante e ON ce.estudiante = e.documento "
 				+ "GROUP BY ce.carrera, ce.estudiante  "
-				+ "ORDER BY c.nombre ASC, ce.fechaEgreso").getResultList();
+				+ "ORDER BY c.nombre ASC, ce.fechaIngreso ASC, ce.fechaEgreso ASC").getResultList();
 		System.out.println("Informe completo de las carreras ordenadas por fecha de ingreso y egreso:");
 		carreras.forEach(c-> System.out.println(c));
 	}
-/*SELECT c.nombre, count(ce.estudianteId), count(ce.fechaEgreso), ce.fechaEgreso
-FROM Carrera c JOIN CarreraEstudiante ce ON c.id = ce.carreraId 
-JOIN Estudiante e ON ce.estudianteId = e.documento 
-GROUP BY ce.carreraId, ce.estudianteId
-ORDER BY c.nombre ASC, ce.fechaEgreso;*/
 }
